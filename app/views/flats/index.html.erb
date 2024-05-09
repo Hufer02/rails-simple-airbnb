@@ -1,0 +1,39 @@
+<div class= "row m-5">
+ <div class="row">
+    <div class="col-12">
+      <h1 class="mb-5">All our Flats</h1>
+    </div>
+  </div>
+   <div class="row">
+    <div class="col">
+       Here are the <%= @flats.count %> flats out of our <%= Flat.count %> on our website.</p>
+    </div>
+  </div>
+  <% @flats.each do |flat| %>
+    <div class="card" style="width: 18rem;" class="mb-5">
+          <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"></div>
+          <div class="card-body mb-2">
+            <div class="card-title mb-3">
+              <h4><%= flat.name %></h4>
+            </div>
+            <p><%= flat.address %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="fa-solid fa-people-line"></i>
+                <span><%= flat.number_of_guests %></span>
+                <i class="fa-solid fa-euro-sign"></i>
+                <span><%= flat.price_per_night %></span>
+              </div>
+              <div class="flex align-items-center ms-3">
+
+              </div>
+            </div>
+          </div>
+          <div class="card flex bc-grey">
+            <a href="/flats/870">More info</a>
+            <a class="ms-3 text-warning" href="/flats/870/edit">Edit</a>
+            <a data-turbo-method="delete" data-turbo-confirm="Are you sure?" class="ms-3 text-danger" href="/flats/870">Remove</a>
+          </div>
+        </div>
+      <% end %>
+</div>
